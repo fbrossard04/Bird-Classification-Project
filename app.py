@@ -9,8 +9,8 @@ import os
 import gdown
 
 # Google Drive file ID
-file_id = 'YOUR_FILE_ID'
-url = f'https://drive.google.com/uc?id={1gGX-Swg_yzoC2xE8_3JChhrggiW8iPXf}'
+file_id = '1gGX-Swg_yzoC2xE8_3JChhrggiW8iPXf'
+url = f'https://drive.google.com/uc?id={file_id}'
 
 # Download the model from Google Drive
 output = 'fine_tuned_model.h5'
