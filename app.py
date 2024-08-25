@@ -63,10 +63,10 @@ def predict_image_class(img_path):
 st.title('Bird Classification Project')
 
 st.header('This model was trained only to identify those birds seen in Quebec:')
-st.write("BLACK-CAPPED CHICKADEE", "MALLARD DUCK", "AMERICAN ROBIN", "AMERICAN GOLDFINCH", 
-    "NORTHERN CARDINAL", "DOWNY WOODPECKER", "MOURNING DOVE", "HOUSE SPARROW", 
-    "COMMON GRACKLE", "DARK EYED JUNCO", "CHIPPING SPARROW", "NORTHERN FLICKER", 
-    "CEDAR WAXWING", "TREE SWALLOW", "PURPLE FINCH")
+st.write(BLACK-CAPPED CHICKADEE, MALLARD DUCK, AMERICAN ROBIN, AMERICAN GOLDFINCH, 
+    NORTHERN CARDINAL, DOWNY WOODPECKER, MOURNING DOVE, HOUSE SPARROW, 
+    COMMON GRACKLE, DARK EYED JUNCO, CHIPPING SPARROW, NORTHERN FLICKER, 
+    CEDAR WAXWING, TREE SWALLOW, PURPLE FINCH)
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
@@ -74,7 +74,6 @@ if uploaded_file is not None:
     with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as temp_file:
         temp_file.write(uploaded_file.getbuffer())
         temp_file_path = temp_file.name
-        st.write(f'Temporary file path: {temp_file_path}')  # Debugging statement
 
     # Predict the class of the uploaded image
     label = predict_image_class(temp_file_path)
@@ -83,3 +82,9 @@ if uploaded_file is not None:
     # Display the image and the prediction
     st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
     st.write(f'Predicted Label: {label}')
+
+# Credit Section
+st.header('Credits')
+st.write('This project was developed using the dataset:')
+st.write('https://www.kaggle.com/datasets/gpiosenka/100-bird-species')
+st.write('Project developped by Victor, Luca and Francois')
