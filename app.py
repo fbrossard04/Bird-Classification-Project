@@ -6,9 +6,18 @@ import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import tempfile
 import os
+import gdown
+
+# Google Drive file ID
+file_id = 'YOUR_FILE_ID'
+url = f'https://drive.google.com/uc?id={https://drive.google.com/file/d/1gGX-Swg_yzoC2xE8_3JChhrggiW8iPXf/view?usp=drive_link}'
+
+# Download the model from Google Drive
+output = 'fine_tuned_model.h5'
+gdown.download(url, output, quiet=False)
 
 # Load your trained model
-model = load_model('fine_tuned_model.h5')
+model = load_model(output)
 
 # Create the ImageDataGenerator
 unseen_datagen = ImageDataGenerator(rescale=1./255)
@@ -17,7 +26,7 @@ unseen_datagen = ImageDataGenerator(rescale=1./255)
 class_indices = {
     0: 'AMERICAN GOLDFINCH',
     1: 'AMERICAN ROBIN',
-    2: 'BLACK-CAPPED CHICKADEE',
+    2: 'BLACK-CAPPED CHICKADEe',
     3: 'CEDAR WAXWING',
     4: 'CHIPPING SPARROW',
     5: 'COMMON GRACKLE',
