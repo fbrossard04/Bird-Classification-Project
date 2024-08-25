@@ -4,11 +4,6 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import gdown
-
-url = 'https://drive.google.com/uc?id=1gGX-Swg_yzoC2xE8_3JChhrggiW8iPXf'
-output = 'fine_tuned_model.h5'
-gdown.download(url, output, quiet=False)
 
 # Load your trained model
 model = load_model('fine_tuned_model.h5')
