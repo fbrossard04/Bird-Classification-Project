@@ -63,10 +63,10 @@ def predict_image_class(img_path):
 st.title('Bird Classification Project')
 
 st.header('This model was trained only to identify those birds seen in Quebec:')
-st.write(BLACK-CAPPED CHICKADEE, MALLARD DUCK, AMERICAN ROBIN, AMERICAN GOLDFINCH, 
+st.write('BLACK-CAPPED CHICKADEE, MALLARD DUCK, AMERICAN ROBIN, AMERICAN GOLDFINCH, 
     NORTHERN CARDINAL, DOWNY WOODPECKER, MOURNING DOVE, HOUSE SPARROW, 
     COMMON GRACKLE, DARK EYED JUNCO, CHIPPING SPARROW, NORTHERN FLICKER, 
-    CEDAR WAXWING, TREE SWALLOW, PURPLE FINCH)
+    CEDAR WAXWING, TREE SWALLOW, PURPLE FINCH')
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
