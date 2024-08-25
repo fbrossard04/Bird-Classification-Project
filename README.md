@@ -13,7 +13,7 @@ Our approach involved optimizing the model with techniques like data augmentatio
 # Installation
 
 **Clone the repository:**
-- git clone https://github.com/your-repo/bird-classification.git
+- git clone (https://github.com/fbrossard04/Bird-Classification-Project)
   
 **Navigate to the project directory:**
 - cd bird-classification
