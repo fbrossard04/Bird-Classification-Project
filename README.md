@@ -23,6 +23,9 @@ Our approach involved optimizing the model with techniques like data augmentatio
 
 # Dataset
 
+This project was developed using the dataset:
+https://www.kaggle.com/datasets/gpiosenka/100-bird-species
+
 The dataset features images of 15 bird species from Quebec. We’ve split the data into training, testing, and validation sets, making sure each set has the same species.
 
 File Structure:
