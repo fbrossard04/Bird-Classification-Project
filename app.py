@@ -6,7 +6,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Load your trained model
-model = load_model('fine_tuned_model.h5')
+model = load_model('C:\Users\User\Documents\Data science\Module 7 Machine learning\Project 4\fine_tuned_model.h5')
 
 # Create the ImageDataGenerator
 unseen_datagen = ImageDataGenerator(rescale=1./255)
