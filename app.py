@@ -60,18 +60,20 @@ st.write("BLACK-CAPPED CHICKADEE", "MALLARD DUCK", "AMERICAN ROBIN", "AMERICAN G
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
+import tempfile
+
 if uploaded_file is not None:
-    # Save the uploaded file to a temporary location
-    with open("temp.jpg", "wb") as f:
-        f.write(uploaded_file.getbuffer())
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as temp_file:
+        temp_file.write(uploaded_file.getbuffer())
+        temp_file_path = temp_file.name
 
     # Predict the class of the uploaded image
-    label = predict_image_class("temp.jpg")
+    label = predict_image_class(temp_file_path)
 
     # Display the image and the prediction
     st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
     st.write(f'Predicted Label: {label}')
-
+    
 # Credit Section
 st.header('Credits')
 st.write('This project was developed using the dataset:')
