@@ -2,3 +2,4 @@ streamlit
 tensorflow
 pandas
 numpy
+gdown==4.5.1
