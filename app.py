@@ -10,7 +10,6 @@ import os
 # Load your trained model
 model = load_model('fine_tuned_model.h5')
 
-
 # Create the ImageDataGenerator
 unseen_datagen = ImageDataGenerator(rescale=1./255)
 
