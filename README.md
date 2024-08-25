@@ -37,8 +37,11 @@ For this project, we built on the EfficientNetB0 architecture, which is pre-trai
 To adapt the model for our specific needs, we added a few custom layers:
 
 **Global Average Pooling:** This layer reduces the dimensionality of the model’s output, making it more manageable.
+
 **Dense Layer:** A fully connected layer with ReLU activation to introduce non-linearity and learn complex patterns in the data.
+
 **Dropout Layer:** This layer helps prevent overfitting by randomly dropping units during training.
+
 **Output Layer:** The final layer uses softmax activation to produce probabilities for each of the 15 bird species.
 
 # Training
