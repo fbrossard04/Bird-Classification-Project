@@ -58,9 +58,11 @@ st.write("BLACK-CAPPED CHICKADEE", "MALLARD DUCK", "AMERICAN ROBIN", "AMERICAN G
     "CEDAR WAXWING", "TREE SWALLOW", "PURPLE FINCH")
 
 
-uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 import tempfile
+import os
+
+uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
     with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as temp_file:
@@ -73,6 +75,8 @@ if uploaded_file is not None:
     # Display the image and the prediction
     st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
     st.write(f'Predicted Label: {label}')
+
+
     
 # Credit Section
 st.header('Credits')
