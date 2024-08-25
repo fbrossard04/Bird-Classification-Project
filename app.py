@@ -4,6 +4,8 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import tempfile
+import os
 
 # Load your trained model
 model = load_model('fine_tuned_model.h5')
@@ -37,7 +39,7 @@ def predict_image_class(img_path):
     img_array = np.expand_dims(img_array, axis=0)
 
     # Apply the same preprocessing
-    img_array = unseen_datagen.standardize(img_array)
+    img_array = img_array / 255.0  # Normalize the image array
 
     # Make prediction
     prediction = model.predict(img_array)
@@ -49,7 +51,7 @@ def predict_image_class(img_path):
     return predicted_label
 
 # Streamlit app
-st.title('Bird Classification project')
+st.title('Bird Classification Project')
 
 st.header('This model was trained only to identify those birds seen in Quebec:')
 st.write("BLACK-CAPPED CHICKADEE", "MALLARD DUCK", "AMERICAN ROBIN", "AMERICAN GOLDFINCH", 
@@ -57,29 +59,18 @@ st.write("BLACK-CAPPED CHICKADEE", "MALLARD DUCK", "AMERICAN ROBIN", "AMERICAN G
     "COMMON GRACKLE", "DARK EYED JUNCO", "CHIPPING SPARROW", "NORTHERN FLICKER", 
     "CEDAR WAXWING", "TREE SWALLOW", "PURPLE FINCH")
 
-
-
-import tempfile
-import os
-
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
     with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as temp_file:
         temp_file.write(uploaded_file.getbuffer())
         temp_file_path = temp_file.name
+        st.write(f'Temporary file path: {temp_file_path}')  # Debugging statement
 
     # Predict the class of the uploaded image
     label = predict_image_class(temp_file_path)
+    st.write(f'Prediction: {label}')  # Debugging statement
 
     # Display the image and the prediction
     st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
     st.write(f'Predicted Label: {label}')
-
-
-    
-# Credit Section
-st.header('Credits')
-st.write('This project was developed using the dataset:')
-st.write('https://www.kaggle.com/datasets/gpiosenka/100-bird-species')
-st.write('Project developped by Victor, Luca and Francois')
