@@ -77,7 +77,6 @@ if uploaded_file is not None:
 
     # Predict the class of the uploaded image
     label = predict_image_class(temp_file_path)
-    st.write(f'Prediction: {label}')  # Debugging statement
 
     # Display the image and the prediction
     st.image(uploaded_file, caption='Uploaded Image.', use_column_width=True)
